@@ -6,12 +6,13 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var jade = require('gulp-jade');
 
 var paths = {
   sass: ['./scss/**/*.scss']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass','templates']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -26,8 +27,9 @@ gulp.task('sass', function(done) {
     .on('end', done);
 });
 
-gulp.task('watch', ['sass'], function() {
+gulp.task('watch', ['sass','templates'], function() {
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch(['./www/jade_template/*.jade'], ['templates']);
 });
 
 gulp.task('install', ['git-check'], function() {
@@ -48,4 +50,15 @@ gulp.task('git-check', function(done) {
     process.exit(1);
   }
   done();
+});
+
+/**
+ * 转换前端模板
+ */
+gulp.task('templates', function() {
+  gulp.src('./www/jade_template/*.jade')
+    .pipe(jade({
+      pretty: true
+    }))
+    .pipe(gulp.dest('./www/app/'));
 });

@@ -1,0 +1,43 @@
+
+<ion-view title="商品详情">
+  <ion-nav-buttons side="left">
+    <button ng-click="goBack()" class="button button-clear button-icon icon ion-arrow-left-c"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true">
+    <ion-list>
+      <ion-item class="item-image"><img ng-src="{{product.img}}"/></ion-item>
+      <ion-item><span class="assertive font-size-32">¥ {{product.currentPrice}}</span><span class="gray padding">团购价 门市价{{product.originPrice}}</span></ion-item>
+      <ion-item class="item-icon-left item-icon-right"><i class="icon ion-ios-location calm"></i>
+        <h3 class="gray">新顺南大街6号商业楼一层 1.8km</h3><i class="icon ion-ios-telephone calm"></i>
+      </ion-item>
+      <ion-item class="item-icon-right">
+        <h3>所有适用门店&nbsp;&nbsp;&nbsp;&nbsp;<span class="gray">44家</span></h3><i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+    </ion-list>
+    <ion-list class="padding">
+      <ion-item class="item-icon-right">
+        <h3>
+           
+          评价<span class="padding-left"><i class="ion-android-star energized"></i><i class="ion-android-star energized"></i><i class="ion-android-star energized"></i><i class="ion-android-star energized"></i></span>
+        </h3><i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+    </ion-list>
+    <ion-list class="padding">
+      <ion-item class="item-icon-right">
+        <h3>折扣须知<span class="gray padding-left">不与其他优惠活动同时使用</span></h3><i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+    </ion-list>
+    <ion-list class="padding">
+      <ion-item>
+        <h3>更多信息</h3>
+      </ion-item>
+      <ion-item><span class="gray"><i class="icon ion-wifi"></i>WiFi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="gray"><i class="icon ion-no-smoking"></i>禁烟</span></ion-item>
+      <ion-item>
+        <h3 class="gray">营业时间：00:00-23:59</h3>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar style="padding:0" class="bar-light">
+    <div style="padding:0" class="tabs tabs-light"><a ng-click="" class="tab-item has-badge"><i style="color:#ff0000" class="icon ion-ios-cart-outline"></i><i style="background-color:#FF4683;color:#FFFFFF" ng-show="shoppingCart.qtyTotal&gt;0" class="badge">{{shoppingCart.qtyTotal}}</i></a><a style="background-color:#FF9900;color:#FFFFFF" ng-click="vm.addToCart(store, product)" class="tab-item">加入购物车</a><a style="background-color:#ff0000;color:#ffffff" class="tab-item">立即抢购</a></div>
+  </ion-footer-bar>
+</ion-view>

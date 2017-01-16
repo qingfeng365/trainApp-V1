@@ -1,1 +1,84 @@
 /* Empty. Add your own CSS if you like */
+
+/**
+ * ============
+ * 通用的辅助样式
+ * ============
+ */
+
+/**
+ * 通用的辅助样式 - 颜色
+ */
+
+.gray {
+    color: #C0C0C0;
+}
+
+/**
+ * 通用的辅助样式 - 字体
+ */
+
+.font-size-12 {
+    font-size: 12px;
+}
+.font-size-14 {
+    font-size: 14px;
+}
+.font-size-16 {
+    font-size: 16px;
+}
+.font-size-18 {
+    font-size: 18px;
+}
+.font-size-20 {
+    font-size: 20px;
+}
+.font-size-24 {
+	font-size: 24px;
+}
+.font-size-32{
+	font-size: 32px;
+}
+
+/**
+ * 通用的辅助样式 - marging
+ */
+.marging-top{
+	margin-top: 10px;
+}
+.marging-left{
+	margin-top: 10px;
+}
+
+/**
+ * ============
+ * 可公用的样式
+ * ============
+ */
+
+/*横幅广告轮播区 图片*/
+.slider-slide img{
+	width: 100%;
+}
+
+/*导航图标按钮*/
+.navbtn{
+	text-align: center;
+}
+/*导航图标按钮 图标*/
+.navbtn .navbtn-icon{
+	width:48px;
+	height:48px;
+	max-width:100%;
+}
+
+
+/**
+ * 生活板块通用样式
+ */
+
+
+/**
+ * 生活首页专用样式
+ */
+

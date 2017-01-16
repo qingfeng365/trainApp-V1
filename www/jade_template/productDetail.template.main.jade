@@ -1,0 +1,64 @@
+ion-view(title="商品详情")
+	ion-nav-buttons(side="left")
+		button.button.button-clear.button-icon.icon.ion-arrow-left-c(
+			ng-click="goBack()")
+	ion-content(padding="true")
+		ion-list
+			ion-item.item-image
+				img(ng-src="{{product.img}}")
+			ion-item
+				span.assertive.font-size-32 ¥ {{product.currentPrice}}
+				span.gray.padding 团购价 门市价{{product.originPrice}}
+			ion-item.item-icon-left.item-icon-right
+				i.icon.ion-ios-location.calm
+				h3.gray 新顺南大街6号商业楼一层 1.8km
+				i.icon.ion-ios-telephone.calm
+			ion-item.item-icon-right
+				h3
+					| 所有适用门店&nbsp;&nbsp;&nbsp;&nbsp;
+					span.gray 44家
+				i.icon.ion-ios-arrow-right
+		ion-list.padding
+			ion-item.item-icon-right
+				h3 
+					| 评价
+					span.padding-left
+						i.ion-android-star.energized
+						i.ion-android-star.energized
+						i.ion-android-star.energized
+						i.ion-android-star.energized
+				i.icon.ion-ios-arrow-right
+		ion-list.padding
+			ion-item.item-icon-right
+				h3
+					| 折扣须知
+					span.gray.padding-left 不与其他优惠活动同时使用
+				i.icon.ion-ios-arrow-right
+		ion-list.padding
+			ion-item
+				h3 更多信息
+			ion-item
+				span.gray
+					i.icon.ion-wifi
+					| WiFi
+				span &nbsp;&nbsp;&nbsp;&nbsp;
+				span.gray
+					i.icon.ion-no-smoking
+					| 禁烟
+			ion-item
+				h3.gray 营业时间：00:00-23:59
+	ion-footer-bar.bar-light(style="padding:0")
+		.tabs.tabs-light(style="padding:0")
+			a.tab-item.has-badge(ng-click="")
+				i.icon.ion-ios-cart-outline(style="color:#ff0000")
+				i.badge(style="background-color:#FF4683;color:#FFFFFF",
+					ng-show="shoppingCart.qtyTotal>0")
+					| {{shoppingCart.qtyTotal}}
+			a.tab-item(style="background-color:#FF9900;color:#FFFFFF",
+				ng-click="vm.addToCart(store, product)")
+				| 加入购物车
+			a.tab-item(style="background-color:#ff0000;color:#ffffff")
+				| 立即抢购
+		
+
+

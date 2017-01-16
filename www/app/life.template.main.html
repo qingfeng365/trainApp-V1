@@ -1,0 +1,56 @@
+
+<ion-view title="首页">
+  <ion-content padding="true" class="life life-home">
+    <ion-refresher pulling-text="释放刷新..." on-refresh="vm.pullRefresh()"></ion-refresher>
+    <ion-slide-box auto-play="true" does-continue="true" slide-interval="3000">
+      <ion-slide><img src="img/广告横幅1.jpg"/></ion-slide>
+      <ion-slide><img src="img/广告横幅2.jpg"/></ion-slide>
+      <ion-slide><img src="img/广告横幅1.jpg"/></ion-slide>
+      <ion-slide><img src="img/广告横幅2.jpg"/></ion-slide>
+    </ion-slide-box>
+    <div class="navbtnbox">
+      <div class="row">
+        <div ng-click="gotoUrl('#/cate')" class="col navbtn"><img src="img/图标美食.jpg" class="navbtn-icon"/>
+          <h5 class="navbtn-title">美食</h5>
+        </div>
+        <div class="col navbtn"><img src="img/图标电影.jpg" class="navbtn-icon"/>
+          <h5 class="navbtn-title">电影</h5>
+        </div>
+        <div class="col navbtn"><img src="img/图标酒店.jpg" class="navbtn-icon"/>
+          <h5 class="navbtn-title">酒店</h5>
+        </div>
+        <div class="col navbtn"><img src="img/图标KTV.jpg" class="navbtn-icon"/>
+          <h5 class="navbtn-title">KTV</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col navbtn"><img src="img/图标外卖.jpg" class="navbtn-icon"/>
+          <h5 class="navbtn-title">外卖</h5>
+        </div>
+        <div class="col navbtn"><img src="img/图标娱乐.jpg" class="navbtn-icon"/>
+          <h5 class="navbtn-title">娱乐</h5>
+        </div>
+        <div class="col navbtn"><img src="img/图标游戏.jpg" class="navbtn-icon"/>
+          <h5 class="navbtn-title">游戏</h5>
+        </div>
+        <div class="col navbtn"><img src="img/图标休闲.jpg" class="navbtn-icon"/>
+          <h5 class="navbtn-title">休闲</h5>
+        </div>
+      </div>
+    </div>
+    <ion-list ng-repeat="store in vm.listdata" ng-show="vm.listdata.length" class="padding">
+      <ion-item>
+        <h2><strong>{{store.name}}</strong></h2><i ng-repeat="star in store.star track by $index" ng-class="{'energized':star===1,'gray':star===0}" class="icon ion-android-star"></i><span class="gray font-size-12 padding-horizontal">&nbsp;&nbsp;¥ {{store.spend}}/人</span><span class="gray font-size-12 padding-horizontal">&nbsp;&nbsp;{{store.loc}}</span><span class="gray font-size-12 padding-horizontal">&nbsp;&nbsp;{{store.distance}}公里</span>
+      </ion-item>
+      <ion-item ng-repeat="product in store.products" ng-show="store.products.length" ng-click="gotoUrl('#/productDetail/{{store.id}}/{{product.id}}')" class="item-thumbnail-left"><img ng-src="{{product.img}}"/>
+        <h3>{{product.name}}</h3>
+        <div class="row marging-top">
+          <div class="col"><span class="assertive font-size-24">¥ {{product.currentPrice}}</span><span class="gray font-size-16">
+              <strike>{{product.originPrice}}</strike></span></div>
+          <div class="col"><span class="gray font-size-16">已售 {{product.saledCount}}</span></div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll ng-if="vm.isHasMoreData" on-infinite="vm.loadMoreData()"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>
