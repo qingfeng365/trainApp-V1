@@ -1,8 +1,16 @@
 (function() {
   'use strict';
   var currApp = angular.module('app');
-  currApp
-    .service('appCartService', ['$q', '$http',
+  currApp.service('appAuthService', ['$q', function($q){
+    this.loginUser = {
+      islogined: false,
+      userId:'',
+      userName:'',
+    };
+
+    
+  }]);
+  currApp.service('appCartService', ['$q', '$http',
       function($q, $http) {
         this.shoppingCart = {
           storeSells: [],
@@ -78,8 +86,7 @@
         };
       }
     ]);
-  currApp
-    .service('appDataService', ['$q', '$http',
+  currApp.service('appDataService', ['$q', '$http',
       function($q, $http) {
         /**
          * [getStoreList description]

@@ -1,0 +1,20 @@
+
+<ion-modal-view>
+  <ion-header-bar align-title="center" class="bar bar-header bar-stable">
+    <h1 class="title">用户登录</h1>
+    <button ng-click="close()" class="button button-clear button-primary icon ion-close"></button>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+      <div class="item item-input"><i class="icon ion-ios-person-outline positive"></i>
+        <input type="text" placeholder="请输入您的用户名" ng-model="input.userName"/>
+      </div>
+      <div class="item item-input"><i class="icon ion-ios-unlocked-outline positive"></i>
+        <input type="password" placeholder="请输入您的密码" ng-model="input.password"/>
+      </div>
+    </div>
+    <div class="padding-horizontal">
+      <button ng-click="login()" class="button button-block button-balanced">登录</button>
+    </div>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,20 @@
+ion-modal-view
+	//- 设置align-title是因为ios, android默认样式不一样
+	ion-header-bar.bar.bar-header.bar-stable(align-title="center")
+		h1.title 用户登录
+		button.button.button-clear.button-primary.icon.ion-close(
+			ng-click="close()")
+	ion-content
+		.list
+			.item.item-input
+				i.icon.ion-ios-person-outline.positive
+				input(type="text" placeholder="请输入您的用户名" ng-model="input.userName")
+			.item.item-input
+				i.icon.ion-ios-unlocked-outline.positive
+				input(type="password" placeholder="请输入您的密码" ng-model="input.password")
+		.padding-horizontal
+			button.button.button-block.button-balanced(
+				ng-click="login()") 登录
+
+
+
